@@ -94,7 +94,8 @@ model, predictor_sizes = ssd_300(image_size=(img_height, img_width, img_channels
 
 ### Set up training
 
-batch_size = 32
+batch_size = 2
+
 
 # 3: Instantiate an Adam optimizer and the SSD loss function and compile the model
 
@@ -252,7 +253,7 @@ val_generator = val_dataset.generate(batch_size=batch_size,
                                      diagnostics=False)
 
 n_val_samples = val_dataset.get_n_samples()
-print(n_val_samples)
+print('ntrain {} nval {} n_val_samples batchsize {}'.format(n_train_samples,n_val_samples,batch_size))
 # 7: Define a simple learning rate schedule
 
 def lr_schedule(epoch):
